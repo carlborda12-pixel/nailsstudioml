@@ -1,0 +1,774 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Catálogo de diseños de Mayra López Nails Studio</title>
+<meta name="description" content="Catálogo de diseños de uñas de Mayra López Nails Studio, Posadas, Misiones. Elegí tu diseño y reservá tu turno por WhatsApp.">
+<meta name="theme-color" content="#EE9DBC">
+<meta property="og:title" content="Catálogo de diseños | Mayra López Nails Studio">
+<meta property="og:description" content="Elegí tu diseño y reservá tu turno por WhatsApp.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='40 30 540 560'%3E%3Crect x='40' y='30' width='540' height='560' rx='90' fill='%23EE9DBC'/%3E%3Cpath d='M52 44H104V457H357V500H52Z' fill='%23B8286A' transform='translate(62 55) scale(.8)'/%3E%3Cpath d='M117 115H175L342 335L510 115H568V580H515V195L342 412L165 195V362H117Z' fill='%23B8286A' transform='translate(62 55) scale(.8)'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Gloock&family=Lora:ital@0,400;1,400&family=Poppins:wght@500&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --desk:#EEDFE3; --desk-2:#E2CBD1; --desk-ink:#4A1426; --desk-muted:#8A6470;
+  --paper:#FAF1F3; --paper-2:#F4E6EA; --ink:#3A0D1C; --muted:#8B6873;
+  --cherry:#8E1230; --hair:#E8D5DA; --hair2:#CDB1B9;
+    --serif:'Gloock', 'Bodoni 72', 'Didot', Georgia, serif;
+  --sans:'Albert Sans', 'Helvetica Neue', Arial, system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){ --desk:#22070F; --desk-2:#150308; --desk-ink:#F3D9E0; --desk-muted:#B58C98; }
+}
+:root[data-theme="dark"]{ --desk:#22070F; --desk-2:#150308; --desk-ink:#F3D9E0; --desk-muted:#B58C98; }
+*,*::before,*::after{box-sizing:inherit}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{
+  margin:0;height:100%;overflow:hidden;
+  background:radial-gradient(120% 90% at 50% 35%, var(--desk) 0%, var(--desk-2) 100%);
+  background-color:var(--desk);
+  color:var(--desk-ink);font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+}
+.desk{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:44px;padding:20px 12px;overflow:hidden}
+.stage{width:100%;display:flex;justify-content:center;align-items:center}
+
+/* ---------- Libro ---------- */
+.book{
+  position:relative;isolation:isolate;
+  transform:translateX(var(--shift,0px));
+  user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;touch-action:none;
+}
+.book.grab{cursor:grab}
+.book.grabbing,.book.grabbing *{cursor:grabbing !important}
+.stack{
+  position:absolute;top:0;width:var(--pw);height:var(--ph);z-index:0;
+  background:repeating-linear-gradient(90deg,#F7ECEF 0 1px,#D9C1C8 1px 2px);
+  box-shadow:0 36px 60px -26px rgba(40,4,16,.6), 0 4px 12px rgba(40,4,16,.16);
+  border-radius:0 3px 3px 0;
+  transition:transform .3s, opacity .3s;
+}
+.stack-r{left:50%;transform:translate(var(--tr,0px), calc(var(--tr,0px) * .45))}
+.stack-l{left:0;border-radius:3px 0 0 3px;transform:translate(calc(var(--tl,0px) * -1), calc(var(--tl,0px) * .45))}
+.single .stack-r{left:0}
+.single .stack-l{display:none}
+.book.at-start .stack-l, .book.at-end .stack-r{opacity:0}
+
+.ribbon{
+  position:absolute;left:calc(50% + 14px);top:calc(100% - 8px);width:11px;height:40px;z-index:0;
+  background:linear-gradient(90deg,#5E0920,#A8203F 45%,#6E0B26);
+  clip-path:polygon(0 0,100% 0,100% 100%,50% 84%,0 100%);
+  transform:rotate(5deg);transform-origin:top center;
+  opacity:0;transition:opacity .4s;
+}
+.book.open .ribbon{opacity:1}
+.single .ribbon{display:none}
+
+/* Páginas y hoja que se dobla */
+.page{position:absolute;left:0;top:0;width:var(--pw);height:var(--ph);transform-origin:0 0;overflow:hidden;z-index:1}
+.page.empty{display:none}
+.page.flat{z-index:3;pointer-events:none}
+.flap{
+  position:absolute;left:0;top:0;width:var(--pw);height:var(--ph);transform-origin:0 0;
+  z-index:4;pointer-events:none;will-change:transform;
+  filter:drop-shadow(0 2px 9px rgba(50,6,20,.3));
+}
+.flap>.page{transform:none !important}
+.shade{position:absolute;left:0;top:0;z-index:5;pointer-events:none;overflow:visible;display:none}
+
+.paper{background:linear-gradient(180deg,var(--paper),var(--paper-2))}
+.page.paper::before{content:"";position:absolute;top:0;bottom:0;width:13%;pointer-events:none;z-index:4}
+.page.paper.R::before{left:0;background:linear-gradient(90deg,rgba(90,28,48,.17),rgba(90,28,48,0))}
+.page.paper.L::before{right:0;background:linear-gradient(270deg,rgba(90,28,48,.17),rgba(90,28,48,0))}
+.page.R{border-radius:0 3px 3px 0}
+.page.L{border-radius:3px 0 0 3px}
+.verso{background:linear-gradient(90deg,#E9D4DA,#F3E5E9 14%,#EFDDE2)}
+
+/* ---------- Tapa (identidad LM) ---------- */
+.cover{background:radial-gradient(120% 80% at 30% 15%,#F4B3CB 0%,#EE9DBC 100%);color:#4A0A22}
+.page.cover.R{border-radius:0 4px 4px 0}
+.page.cover.L{border-radius:4px 0 0 4px}
+.page.cover::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:2}
+.page.cover.R::before{background:linear-gradient(90deg,rgba(110,20,50,.28),rgba(110,20,50,0) 4%,rgba(255,255,255,.35) 5%,rgba(255,255,255,0) 7.5%)}
+.page.cover.L::before{background:linear-gradient(270deg,rgba(110,20,50,.28),rgba(110,20,50,0) 4%,rgba(255,255,255,.35) 5%,rgba(255,255,255,0) 7.5%)}
+.ghost{position:absolute;inset:0;width:100%;height:100%;display:block}
+.cover-inner{position:absolute;inset:0;padding:10% 10% 9%;display:flex;flex-direction:column;align-items:flex-start}
+.logo{width:3.9em;height:auto;display:block;color:#B8286A}
+.brand{margin:2.1em 0 0;font-family:'Poppins',var(--sans);font-weight:500;font-size:.8em;letter-spacing:.3em;line-height:1;text-transform:uppercase;color:#4A0A22}
+.tagline{margin:.6em 0 0;font-family:'Lora',Georgia,serif;font-size:.98em;line-height:1.45;color:#6E1F33;max-width:17em;text-wrap:balance}
+.cover-foot{margin-top:auto;color:#4A0A22}
+.cover-foot p{margin:0}
+.cover-foot .t{font-family:'Lora',Georgia,serif;font-style:italic;font-size:1.3em;line-height:1.1}
+.cover-foot .s{font-family:'Poppins',var(--sans);font-weight:500;font-size:.62em;letter-spacing:.26em;text-transform:uppercase;margin-top:.9em}
+.back-inner{position:absolute;inset:0;display:grid;place-items:center;text-align:center}
+.back-inner .logo{width:4.4em;margin:0 auto}
+.back-inner .brand{margin-top:1.7em;padding-left:.3em}
+.back-inner .city{font-family:'Lora',Georgia,serif;font-size:.85em;color:#6E1F33;margin:.9em 0 0}
+
+/* ---------- Interior ---------- */
+.pg{position:absolute;inset:0;padding:8.5% 10% 12.5%;display:flex;flex-direction:column;color:var(--ink);font-size:1em}
+.pg .runhead{font-style:italic;font-size:.74em;line-height:1.3;color:var(--muted);margin:0 0 2.4em;max-width:none}
+.pg.r p.runhead{text-align:right}
+.folio{position:absolute;bottom:4.6%;font-size:.74em;color:var(--muted);font-variant-numeric:tabular-nums}
+.pg.l .folio{left:10%} .pg.r .folio{right:10%}
+
+.d-num{font-size:.82em;color:var(--cherry);margin:0;font-weight:500}
+.d-name{font-family:var(--serif);font-weight:400;font-size:3.25em;line-height:.95;margin:.2em 0 .6em;letter-spacing:-.012em;text-wrap:balance}
+.d-desc{margin:0;line-height:1.58;max-width:26em;text-wrap:pretty}
+.d-spec{margin:auto 0 0;display:grid}
+.d-spec div{display:grid;grid-template-columns:7.6em 1fr;gap:1em;padding:.6em 0;border-top:1px solid var(--hair);align-items:baseline}
+.d-spec dt{font-size:.8em;color:var(--muted)}
+.d-spec dd{margin:0;font-size:.92em;line-height:1.35}
+.d-spec .price dd{font-family:var(--serif);font-size:1.8em;color:var(--cherry);line-height:1}
+
+.fan{margin:0;flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
+.fan svg{width:100%;height:100%;display:block;overflow:visible}
+.swatches{list-style:none;padding:0;margin:1.2em 0 0;display:flex;flex-wrap:wrap;gap:.55em 1.4em;justify-content:center;font-size:.82em;color:var(--ink)}
+.swatches li{display:flex;align-items:center;gap:.5em}
+.swatches i{width:1.1em;height:1.1em;border-radius:50%;background:var(--c);box-shadow:inset 0 0 0 1px rgba(70,15,32,.18), inset -2px -3px 4px rgba(0,0,0,.12), inset 2px 2px 3px rgba(255,255,255,.5)}
+
+.p-title{font-family:var(--serif);font-weight:400;font-size:2.6em;line-height:1;margin:0 0 .75em;letter-spacing:-.01em}
+.prose p{line-height:1.62;margin:0 0 1em;max-width:27em;text-wrap:pretty}
+.sign{font-family:var(--serif);font-size:1.7em !important;color:var(--cherry);margin-top:.3em !important}
+
+.toc h3{font-size:.8em;font-weight:400;font-style:italic;color:var(--muted);margin:1.2em 0 .3em}
+.toc h3:first-child{margin-top:0}
+.toc ol{list-style:none;margin:0;padding:0}
+.toc button{all:unset;box-sizing:border-box;display:flex;width:100%;align-items:baseline;gap:.6em;padding:.3em 0;cursor:pointer;font-size:1em;color:var(--ink)}
+.toc .n{color:var(--cherry);font-size:.8em;font-variant-numeric:tabular-nums;min-width:1.7em}
+.toc .dots{flex:1;border-bottom:1px dotted var(--hair2);transform:translateY(-.28em)}
+.toc .p{font-variant-numeric:tabular-nums;color:var(--muted);font-size:.84em}
+.toc button:hover .t{color:var(--cherry)}
+.toc button:focus-visible{outline:2px solid var(--cherry);outline-offset:3px;border-radius:2px}
+
+.svc{margin:0;display:grid}
+.svc div{display:flex;justify-content:space-between;align-items:baseline;gap:1em;padding:.7em 0;border-top:1px solid var(--hair)}
+.svc div:last-child{border-bottom:1px solid var(--hair)}
+.svc dt{font-size:.95em}
+.svc dd{margin:0;font-family:var(--serif);font-size:1.25em;color:var(--cherry);white-space:nowrap}
+.note{margin:auto 0 0;font-size:.8em;color:var(--muted);line-height:1.5}
+
+.wa{display:inline-block;font-family:var(--serif);font-size:1.9em;color:var(--cherry);text-decoration:none;margin:.2em 0 1.1em;line-height:1.1}
+.wa:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.15em}
+.wa:focus-visible{outline:2px solid var(--cherry);outline-offset:3px}
+.info{margin:0;display:grid;gap:.9em}
+.info dt{font-size:.8em;color:var(--muted);margin-bottom:.15em}
+.info dd{margin:0;line-height:1.45}
+
+/* ---------- Controles ---------- */
+.controls{display:flex;align-items:center;gap:18px}
+.nav-btn{
+  width:44px;height:44px;border-radius:50%;display:grid;place-items:center;cursor:pointer;
+  background:transparent;color:var(--desk-ink);border:1px solid color-mix(in srgb, var(--desk-ink) 30%, transparent);
+  transition:background .2s, opacity .2s;
+}
+.nav-btn:hover:not(:disabled){background:color-mix(in srgb, var(--desk-ink) 9%, transparent)}
+.nav-btn:disabled{opacity:.28;cursor:default}
+.nav-btn:focus-visible,.link-btn:focus-visible{outline:2px solid var(--desk-ink);outline-offset:3px}
+.where{margin:0;min-width:15em;text-align:center;font-family:var(--serif);font-size:1.05rem;line-height:1.2}
+.aux{display:flex;gap:1.4em;align-items:baseline;font-size:.84rem;color:var(--desk-muted);margin-top:-30px;flex-wrap:wrap;justify-content:center}
+.link-btn{all:unset;cursor:pointer;color:var(--desk-ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.2em}
+@media (max-width:520px){ .where{min-width:0;font-size:.95rem;max-width:14em} .aux{gap:.4em;flex-direction:column;align-items:center} }
+</style>
+</head>
+<body>
+<main class="desk">
+  <div class="stage" id="stage">
+    <div class="book no-anim" id="book" aria-roledescription="catálogo" aria-label="Catálogo de diseños">
+      <div class="stack stack-l"></div>
+      <div class="stack stack-r"></div>
+      <div class="ribbon" aria-hidden="true"></div>
+    </div>
+  </div>
+  <nav class="controls" id="controls" aria-label="Pasar páginas">
+    <button class="nav-btn" id="prev" aria-label="Página anterior">
+      <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <p class="where" id="where" aria-live="polite"></p>
+    <button class="nav-btn" id="next" aria-label="Página siguiente">
+      <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </nav>
+  <div class="aux" id="aux">
+    <button class="link-btn" id="toIndex">Ir al índice</button>
+    <span class="hint" id="hint"></span>
+  </div>
+</main>
+
+<script>
+/* ============ Datos del estudio: editá acá ============ */
+const STUDIO = {
+  name1: 'Mayra', name2: 'López', sub: 'Nails Studio',
+  season: 'Primavera 2026',
+  tagline: 'Tu destino favorito para el cuidado y la belleza de tus uñas',
+  city: 'Posadas, Misiones',
+  whatsapp: '+54 9 376 000-0000',
+  waLink: 'https://wa.me/5493760000000',
+  hours: 'Lunes a sábado, de 9 a 20 h'
+};
+
+const SERVICES = [
+  ['Esmaltado semipermanente', '$14.000'],
+  ['Kapping en gel', '$16.000'],
+  ['Esculpidas en gel, desde', '$26.000'],
+  ['Service de esculpidas', '$20.000'],
+  ['Retirado de esmalte o gel', '$5.000'],
+  ['Reparación, por uña', '$2.000']
+];
+
+/* ============ Dibujo de las uñas ============ */
+const NAIL = 'M30 3 C41 16 53 36 54 64 C55 90 45 108 30 108 C15 108 5 90 6 64 C7 36 19 16 30 3Z';
+const GLOSS = '<path d="M17 26 C13 44 12 66 15 88" stroke="#fff" stroke-width="4.5" stroke-linecap="round" fill="none" opacity=".45"/><ellipse cx="21" cy="21" rx="2.2" ry="4.2" fill="#fff" opacity=".6" transform="rotate(24 21 21)"/>';
+const rng = s => () => { s = (s * 16807) % 2147483647; return (s - 1) / 2147483646; };
+const blur = (id, sd, pad = 80) => `<filter id="${id}" x="-${pad}%" y="-${pad}%" width="${100 + pad * 2}%" height="${100 + pad * 2}%"><feGaussianBlur stdDeviation="${sd}"/></filter>`;
+const flower = (cx, cy, r) => {
+  let s = '';
+  for (let k = 0; k < 5; k++) {
+    const a = (k * 72 - 90) * Math.PI / 180;
+    s += `<circle cx="${(cx + Math.cos(a) * r * .88).toFixed(2)}" cy="${(cy + Math.sin(a) * r * .88).toFixed(2)}" r="${(r * .62).toFixed(2)}" fill="#fff" stroke="#E6D0D7" stroke-width=".6"/>`;
+  }
+  return s + `<circle cx="${cx}" cy="${cy}" r="${(r * .4).toFixed(2)}" fill="#F2C14E"/><circle cx="${cx - r * .1}" cy="${cy - r * .12}" r="${(r * .12).toFixed(2)}" fill="#fff" opacity=".7"/>`;
+};
+
+const DESIGNS = [
+  {
+    section: 'Esenciales', name: 'Leche de rosas',
+    desc: 'Un rosa lechoso y traslúcido que deja ver apenas la uña natural. Queda prolijo en el trabajo y también en una boda.',
+    tech: 'Semipermanente sobre kapping', time: '1 h 15 min', lasts: 'Hasta 3 semanas', price: '$18.000',
+    swatches: [['#F2BFCB', 'Rosa leche'], ['#FFFFFF', 'Brillo gel']],
+    defs: u => `<radialGradient id="${u}g" cx=".42" cy=".6" r=".78"><stop offset="0" stop-color="#FBE3E8"/><stop offset=".6" stop-color="#F2BFCB"/><stop offset="1" stop-color="#E5A2B3"/></radialGradient>`,
+    paint: (i, u) => `<rect width="60" height="112" fill="url(#${u}g)"/>`
+  },
+  {
+    section: 'Esenciales', name: 'Francesita cereza',
+    desc: 'La francesita de siempre, con el borde en rojo cereza y la línea bien fina. En el anular va entera en rojo.',
+    tech: 'Semipermanente, línea a pincel', time: '1 h 30 min', lasts: 'Hasta 3 semanas', price: '$21.000',
+    swatches: [['#EFD3CA', 'Nude durazno'], ['#8E1230', 'Cereza']],
+    defs: u => `<linearGradient id="${u}n" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F5DFD7"/><stop offset="1" stop-color="#EAC6BA"/></linearGradient>`,
+    paint: (i, u) => i === 3
+      ? `<rect width="60" height="112" fill="#8E1230"/>`
+      : `<rect width="60" height="112" fill="url(#${u}n)"/><path d="M0 0H60V20Q30 37 0 20Z" fill="#8E1230"/>`
+  },
+  {
+    section: 'Brillo', name: 'Cromo perla',
+    desc: 'Base rosa pálido con polvo cromo perlado frotado encima. Cambia con la luz entre rosa, lila y champaña.',
+    tech: 'Semipermanente con polvo cromo', time: '1 h 30 min', lasts: 'Hasta 3 semanas', price: '$23.000',
+    swatches: [['#EFE3EA', 'Rosa pálido'], ['#DCD3E6', 'Cromo perla']],
+    defs: u => `<linearGradient id="${u}c" x1="0" y1="0" x2=".9" y2="1"><stop offset="0" stop-color="#FBF4F6"/><stop offset=".3" stop-color="#E4CFE0"/><stop offset=".5" stop-color="#FFFFFF"/><stop offset=".72" stop-color="#E9D6C9"/><stop offset="1" stop-color="#F1E2EA"/></linearGradient>${blur(u + 'b', 4)}`,
+    paint: (i, u) => `<rect width="60" height="112" fill="url(#${u}c)"/><ellipse cx="${34 + i}" cy="44" rx="13" ry="30" fill="#fff" opacity=".42" filter="url(#${u}b)"/>`
+  },
+  {
+    section: 'Brillo', name: 'Ojo de gato',
+    desc: 'Esmalte magnético bordó. Con un imán se forma una franja de luz que se mueve cuando girás la mano.',
+    tech: 'Semipermanente magnético', time: '1 h 20 min', lasts: 'Hasta 3 semanas', price: '$22.000',
+    swatches: [['#4A0B1F', 'Bordó magnético'], ['#F7A9C0', 'Reflejo rosa']],
+    defs: u => `<radialGradient id="${u}r" cx=".5" cy=".55" r=".8"><stop offset="0" stop-color="#5E1029"/><stop offset="1" stop-color="#2A0511"/></radialGradient><linearGradient id="${u}e" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7A9C0" stop-opacity="0"/><stop offset=".5" stop-color="#F7A9C0" stop-opacity=".85"/><stop offset="1" stop-color="#F7A9C0" stop-opacity="0"/></linearGradient>${blur(u + 'f', 3, 120)}${blur(u + 'h', 1.2, 200)}`,
+    paint: (i, u) => `<rect width="60" height="112" fill="url(#${u}r)"/><g transform="rotate(${-22 + i * 5} 30 56)"><rect x="-25" y="38" width="110" height="34" fill="url(#${u}e)" filter="url(#${u}f)"/><rect x="-25" y="53" width="110" height="3.5" fill="#FFE0EA" opacity=".6" filter="url(#${u}h)"/></g>`
+  },
+  {
+    section: 'Arte a mano', name: 'Aura',
+    desc: 'Un centro de color que se esfuma hacia el borde, hecho con aerógrafo. Fucsia en cuatro uñas y lila en la del medio.',
+    tech: 'Semipermanente con aerógrafo', time: '1 h 45 min', lasts: 'Hasta 3 semanas', price: '$26.000',
+    swatches: [['#E0457B', 'Fucsia'], ['#9B6BD6', 'Lila'], ['#F9E3EA', 'Base leche']],
+    defs: u => blur(u + 'f', 6, 120),
+    paint: (i, u) => { const c = i === 2 ? '#9B6BD6' : '#E0457B'; return `<rect width="60" height="112" fill="#F9E3EA"/><ellipse cx="30" cy="62" rx="15" ry="25" fill="${c}" opacity=".9" filter="url(#${u}f)"/><ellipse cx="30" cy="64" rx="6" ry="11" fill="${c}" filter="url(#${u}f)"/>`; }
+  },
+  {
+    section: 'Arte a mano', name: 'Carey',
+    desc: 'Manchas ámbar y chocolate en capas de gel traslúcido, como el marco de unos anteojos antiguos.',
+    tech: 'Gel con capas traslúcidas', time: '2 h', lasts: 'Hasta 4 semanas', price: '$28.000',
+    swatches: [['#C8842F', 'Ámbar'], ['#4E220C', 'Chocolate'], ['#F2BD62', 'Miel']],
+    defs: u => blur(u + 'f', 2.6, 60),
+    paint: (i, u) => {
+      const r = rng(i * 97 + 13); let s = `<rect width="60" height="112" fill="#C8842F"/><g filter="url(#${u}f)">`;
+      for (let k = 0; k < 4; k++) s += `<ellipse cx="${(r() * 60).toFixed(1)}" cy="${(r() * 110).toFixed(1)}" rx="${(6 + r() * 9).toFixed(1)}" ry="${(5 + r() * 8).toFixed(1)}" fill="#8A4516" opacity=".8"/>`;
+      for (let k = 0; k < 7; k++) s += `<ellipse cx="${(r() * 60).toFixed(1)}" cy="${(r() * 110).toFixed(1)}" rx="${(3 + r() * 8).toFixed(1)}" ry="${(2.5 + r() * 6).toFixed(1)}" fill="#4E220C" opacity=".88" transform="rotate(${(r() * 60 - 30).toFixed(0)} 30 55)"/>`;
+      for (let k = 0; k < 4; k++) s += `<ellipse cx="${(r() * 60).toFixed(1)}" cy="${(r() * 110).toFixed(1)}" rx="${(3 + r() * 5).toFixed(1)}" ry="${(2 + r() * 4).toFixed(1)}" fill="#F2BD62" opacity=".7"/>`;
+      return s + '</g>';
+    }
+  },
+  {
+    section: 'Arte a mano', name: 'Florcitas',
+    desc: 'Base blanco leche y flores de cinco pétalos pintadas a pincel, en dos uñas por mano y una mini en el meñique.',
+    tech: 'Semipermanente, arte a pincel', time: '1 h 50 min', lasts: 'Hasta 3 semanas', price: '$25.000',
+    swatches: [['#F5ECEE', 'Blanco leche'], ['#FFFFFF', 'Pétalo'], ['#F2C14E', 'Centro']],
+    defs: u => `<radialGradient id="${u}m" cx=".45" cy=".55" r=".8"><stop offset="0" stop-color="#FBF5F6"/><stop offset="1" stop-color="#EBDCE0"/></radialGradient>`,
+    paint: (i, u) => {
+      let s = `<rect width="60" height="112" fill="url(#${u}m)"/>`;
+      if (i === 1) s += flower(30, 58, 9.5);
+      if (i === 3) s += flower(23, 46, 8) + flower(38, 76, 6);
+      if (i === 4) s += flower(30, 88, 4.5);
+      return s;
+    }
+  },
+  {
+    section: 'Arte a mano', name: 'Ondas',
+    desc: 'Líneas finas en cereza y relieve cromado sobre un nude cálido. Cada uña lleva un trazo distinto.',
+    tech: 'Gel con relieve y cromo', time: '2 h', lasts: 'Hasta 4 semanas', price: '$27.000',
+    swatches: [['#ECCFC3', 'Nude cálido'], ['#8E1230', 'Cereza'], ['#DCD4E2', 'Cromo']],
+    paint: (i) => {
+      const r = rng(i * 31 + 7); let s = `<rect width="60" height="112" fill="#ECCFC3"/>`;
+      const wave = y => { const k = r() > .5 ? 1 : -1; return `M-6 ${y.toFixed(1)} C ${(8 + r() * 12).toFixed(1)} ${(y - 22 * k).toFixed(1)}, ${(34 + r() * 12).toFixed(1)} ${(y + 22 * k).toFixed(1)}, 66 ${(y - 5).toFixed(1)}`; };
+      const y1 = 30 + r() * 20, y2 = y1 + 22 + r() * 18, y3 = y2 + 14 + r() * 10;
+      const c = wave(y2);
+      s += `<path d="${wave(y1)}" stroke="#8E1230" stroke-width="1.3" fill="none"/>`;
+      s += `<path d="${c}" stroke="#A89EB6" stroke-width="3.8" fill="none" stroke-linecap="round"/><path d="${c}" stroke="#F7F3FA" stroke-width="1.5" fill="none" transform="translate(-.4 -.6)"/>`;
+      s += `<path d="${wave(y3)}" stroke="#8E1230" stroke-width="1" fill="none"/>`;
+      return s;
+    }
+  }
+];
+DESIGNS.forEach((d, k) => { d.num = String(k + 1).padStart(2, '0'); d.page = 3 + 2 * k; });
+
+function fan(d) {
+  const u = 'd' + d.num;
+  let s = `<svg viewBox="34 36 332 312" role="img" aria-label="Muestra del diseño ${d.name} en cinco tips"><defs><clipPath id="${u}clip"><path d="${NAIL}"/></clipPath><filter id="${u}sh" x="-40%" y="-25%" width="180%" height="160%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#5A1A2E" flood-opacity=".24"/></filter>${d.defs ? d.defs(u) : ''}</defs>`;
+  [-30, -15, 0, 15, 30].forEach((a, i) => {
+    s += `<g transform="rotate(${a} 200 330)"><rect x="197" y="128" width="6" height="198" rx="3" fill="#fff" fill-opacity=".72" stroke="#DCC6CD" stroke-width=".8"/><g transform="translate(167 20) scale(1.1)"><g filter="url(#${u}sh)"><g clip-path="url(#${u}clip)">${d.paint(i, u)}${GLOSS}</g></g><path d="${NAIL}" fill="none" stroke="rgba(70,15,32,.16)"/></g></g>`;
+  });
+  s += `<circle cx="200" cy="330" r="11" fill="none" stroke="#BEB4C6" stroke-width="4.5"/><circle cx="200" cy="330" r="11" fill="none" stroke="#fff" stroke-width="1.2" opacity=".8"/></svg>`;
+  return s;
+}
+
+/* ============ Páginas ============ */
+const side = n => n % 2 ? 'l' : 'r';
+
+const LM_L = 'M52 44H104V457H357V500H52Z';
+const LM_M = 'M117 115H175L342 335L510 115H568V580H515V195L342 412L165 195V362H117Z';
+const logoSVG = () => `<svg class="logo" viewBox="52 44 516 536" role="img" aria-label="${STUDIO.name1} ${STUDIO.name2}"><path d="${LM_L}" fill="currentColor"/><path d="${LM_M}" fill="currentColor"/></svg>`;
+
+const coverHTML = () => `<svg class="ghost" viewBox="0 0 1000 1380" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g transform="translate(125 184) scale(2.4)" fill="#E98AAF"><path d="${LM_L}"/><path d="${LM_M}"/></g></svg><div class="cover-inner">${logoSVG()}<h1 class="brand">${STUDIO.sub}</h1><p class="tagline">${STUDIO.tagline}</p><div class="cover-foot"><p class="t">Catálogo de diseños</p><p class="s">${STUDIO.season}</p></div></div>`;
+
+const backHTML = () => `<div class="back-inner"><div>${logoSVG()}<p class="brand">${STUDIO.sub}</p><p class="city">${STUDIO.city}</p></div></div>`;
+
+const introHTML = n => `<div class="pg ${side(n)} prose"><p class="runhead">${STUDIO.name1} ${STUDIO.name2} ${STUDIO.sub}</p><h2 class="p-title">Antes de elegir</h2><p>Todas las muestras de este catálogo están pintadas en forma almendra y largo medio. Cualquier diseño se puede hacer en la forma y el largo que prefieras.</p><p>Cuando encuentres el tuyo, anotá el número y escribinos para reservar el turno. Si querés cambiar un color, lo charlamos en el momento.</p><p class="sign">${STUDIO.name1}</p><span class="folio">${n}</span></div>`;
+
+function tocHTML(n, svcPage) {
+  let s = `<div class="pg ${side(n)}"><p class="runhead">${STUDIO.name1} ${STUDIO.name2} ${STUDIO.sub}</p><h2 class="p-title">Índice</h2><div class="toc">`;
+  const sections = [...new Set(DESIGNS.map(d => d.section))];
+  sections.forEach(sec => {
+    s += `<h3>${sec}</h3><ol>`;
+    DESIGNS.filter(d => d.section === sec).forEach(d => {
+      s += `<li><button data-goto="${d.page}"><span class="n">${d.num}</span><span class="t">${d.name}</span><span class="dots"></span><span class="p">${d.page}</span></button></li>`;
+    });
+    s += '</ol>';
+  });
+  s += `<h3>Al final</h3><ol><li><button data-goto="${svcPage}"><span class="n"></span><span class="t">Servicios y turnos</span><span class="dots"></span><span class="p">${svcPage}</span></button></li></ol></div><span class="folio">${n}</span></div>`;
+  return s;
+}
+
+const designLeft = (d, n) => `<div class="pg ${side(n)}"><p class="runhead">${d.section}</p><p class="d-num">Diseño Nº ${d.num}</p><h2 class="d-name">${d.name}</h2><p class="d-desc">${d.desc}</p><dl class="d-spec"><div><dt>Técnica</dt><dd>${d.tech}</dd></div><div><dt>En el salón</dt><dd>${d.time}</dd></div><div><dt>Duración</dt><dd>${d.lasts}</dd></div><div class="price"><dt>Precio</dt><dd>${d.price}</dd></div></dl><span class="folio">${n}</span></div>`;
+
+const designRight = (d, n) => `<div class="pg ${side(n)}"><p class="runhead">${STUDIO.name1} ${STUDIO.name2} ${STUDIO.sub}</p><figure class="fan">${fan(d)}</figure><ul class="swatches">${d.swatches.map(([c, t]) => `<li><i style="--c:${c}"></i>${t}</li>`).join('')}</ul><span class="folio">${n}</span></div>`;
+
+const svcHTML = n => `<div class="pg ${side(n)}"><p class="runhead">Servicios</p><h2 class="p-title">Servicios base</h2><dl class="svc">${SERVICES.map(([a, b]) => `<div><dt>${a}</dt><dd>${b}</dd></div>`).join('')}</dl><p class="note">Precios vigentes en ${STUDIO.season.toLowerCase()}. Los diseños del catálogo ya incluyen la base.</p><span class="folio">${n}</span></div>`;
+
+const contactHTML = n => `<div class="pg ${side(n)} prose"><p class="runhead">${STUDIO.name1} ${STUDIO.name2} ${STUDIO.sub}</p><h2 class="p-title">Reservá tu turno</h2><p>Mandanos el número del diseño por WhatsApp y te pasamos los horarios libres de la semana.</p><a class="wa" href="${STUDIO.waLink}" target="_blank" rel="noopener">${STUDIO.whatsapp}</a><dl class="info"><div><dt>Dónde</dt><dd>${STUDIO.city}</dd></div><div><dt>Horarios</dt><dd>${STUDIO.hours}</dd></div></dl><span class="folio">${n}</span></div>`;
+
+const P = [];
+const svcPage = 3 + DESIGNS.length * 2;
+P.push({ kind: 'cover', label: 'Tapa', html: coverHTML() });
+P.push({ kind: 'paper', label: 'Antes de elegir', html: introHTML(1) });
+P.push({ kind: 'paper', label: 'Índice', html: tocHTML(2, svcPage) });
+DESIGNS.forEach((d, k) => {
+  const lab = `Diseño ${k + 1} de ${DESIGNS.length}: ${d.name}`;
+  P.push({ kind: 'paper', label: lab, html: designLeft(d, d.page) });
+  P.push({ kind: 'paper', label: lab, html: designRight(d, d.page + 1) });
+});
+P.push({ kind: 'paper', label: 'Servicios base', html: svcHTML(svcPage) });
+P.push({ kind: 'paper', label: 'Reservá tu turno', html: contactHTML(svcPage + 1) });
+P.push({ kind: 'cover', label: 'Contratapa', html: backHTML() });
+
+/* ============ Motor del libro ============ */
+const book = document.getElementById('book');
+const stage = document.getElementById('stage');
+const where = document.getElementById('where');
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const CORNER = 90;           // zona sensible de la punta, en px
+const LEAVES = P.length / 2; // hojas en modo doble página
+
+book.insertAdjacentHTML('beforeend', `<svg class="shade" aria-hidden="true"><defs>
+  <linearGradient id="gU" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2A0410" stop-opacity=".45"/><stop offset=".3" stop-color="#2A0410" stop-opacity=".14"/><stop offset="1" stop-color="#2A0410" stop-opacity="0"/></linearGradient>
+  <linearGradient id="gF" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3A0718" stop-opacity=".24"/><stop offset=".09" stop-color="#FFFFFF" stop-opacity=".34"/><stop offset=".45" stop-color="#FFFFFF" stop-opacity="0"/><stop offset="1" stop-color="#3A0718" stop-opacity=".1"/></linearGradient>
+</defs><polygon id="pU" fill="url(#gU)"/><polygon id="pF" fill="url(#gF)"/></svg>`);
+const shade = book.querySelector('.shade');
+const gU = shade.querySelector('#gU'), gF = shade.querySelector('#gF');
+const pU = shade.querySelector('#pU'), pF = shade.querySelector('#pF');
+
+let single = null, W = 0, H = 0, cur = 0, maxCur = 0, turn = null, queued = null, introDone = false, drag = null;
+
+const EASE = {
+  out: k => 1 - Math.pow(1 - k, 3),
+  inout: k => k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2
+};
+const clamp01 = v => Math.max(0, Math.min(1, v));
+const cssPoly = a => a.length < 3 ? 'polygon(0 0,0 0,0 0)' : `polygon(${a.map(p => `${p[0].toFixed(2)}px ${p[1].toFixed(2)}px`).join(',')})`;
+const svgPts = a => a.map(p => p[0].toFixed(2) + ',' + p[1].toFixed(2)).join(' ');
+
+function shiftFor(c) { return single ? 0 : c === 0 ? -W / 2 : c === maxCur ? W / 2 : 0; }
+function setShift(v) { book.style.setProperty('--shift', v.toFixed(2) + 'px'); }
+
+function makePage(i, side, extra = '') {
+  const d = document.createElement('div');
+  if (i === null || i < 0 || i >= P.length) { d.className = 'page empty'; return d; }
+  d.className = `page ${side} ${P[i].kind} ${extra}`;
+  d.innerHTML = P[i].html;
+  return d;
+}
+function place(el, x) { el.style.transform = `translate(${x}px,0)`; book.appendChild(el); return el; }
+function clearPages() { [...book.children].forEach(n => { if (n.classList.contains('page') || n.classList.contains('flap')) n.remove(); }); }
+
+function label() {
+  if (single) return P[cur].label;
+  if (cur === 0) return P[0].label;
+  if (cur === maxCur) return P[P.length - 1].label;
+  return P[2 * cur].label || P[2 * cur - 1].label;
+}
+
+/* Estado en reposo: las dos páginas abiertas (o una en celular) */
+function renderStatic() {
+  clearPages();
+  shade.style.display = 'none';
+  if (single) place(makePage(cur, 'R'), 0);
+  else {
+    if (cur > 0) place(makePage(2 * cur - 1, 'L'), 0);
+    if (cur < maxCur) place(makePage(2 * cur, 'R', !introDone && cur === 0 ? 'intro' : ''), W);
+  }
+  introDone = true;
+  setShift(shiftFor(cur));
+  const total = single ? P.length - 1 : LEAVES;
+  book.style.setProperty('--tr', ((maxCur - cur) / total * 7).toFixed(2) + 'px');
+  book.style.setProperty('--tl', (cur / total * 7).toFixed(2) + 'px');
+  book.classList.toggle('at-start', cur === 0);
+  book.classList.toggle('at-end', cur === maxCur);
+  book.classList.toggle('open', !single && cur > 0 && cur < maxCur);
+  where.textContent = label();
+  prevBtn.disabled = cur === 0;
+  nextBtn.disabled = cur === maxCur;
+}
+
+/* Arma la hoja que se va a doblar.
+   Coordenadas de "hoja": x = distancia al lomo, la punta en reposo está en (W, cy). */
+function startTurn(dir, target, cy) {
+  if (turn || target < 0 || target > maxCur || target === cur) return null;
+  clearPages();
+  const t = { dir, target, cy, s: 1, spine: 0, x0: W, x1: -W };
+  let flat, flap, under = null, flatX = 0, underX = 0;
+  if (single) {
+    flap = document.createElement('div'); flap.className = 'page R verso';
+    if (dir > 0) { flat = makePage(cur, 'R', 'flat'); under = makePage(target, 'R'); }
+    else { flat = makePage(target, 'R', 'flat'); under = makePage(cur, 'R'); t.x0 = -W; t.x1 = W; }
+  } else {
+    t.spine = W;
+    if (dir > 0) {
+      if (cur > 0) place(makePage(2 * cur - 1, 'L'), 0);
+      flat = makePage(2 * cur, 'R', 'flat'); flatX = W;
+      flap = makePage(2 * target - 1, 'L');
+      if (target < maxCur) { under = makePage(2 * target, 'R'); underX = W; }
+    } else {
+      t.s = -1;
+      if (cur < maxCur) place(makePage(2 * cur, 'R'), W);
+      flat = makePage(2 * cur - 1, 'L', 'flat');
+      flap = makePage(2 * target, 'R');
+      if (target > 0) under = makePage(2 * target - 1, 'L');
+    }
+  }
+  if (under) place(under, underX);
+  place(flat, flatX);
+  const wrap = document.createElement('div');
+  wrap.className = 'flap';
+  wrap.appendChild(flap);
+  book.appendChild(wrap);
+  Object.assign(t, { flat, flap: wrap, flapInner: flap, corner: { x: t.x0, y: cy }, shift0: shiftFor(cur), shift1: shiftFor(target) });
+  shade.style.display = 'block';
+  turn = t;
+  frame();
+  return t;
+}
+
+/* La punta no puede alejarse del lomo más que el ancho y la diagonal de la hoja */
+function clampCorner(p, cy) {
+  let x = p.x, y = p.y;
+  let d = Math.hypot(x, y - cy);
+  if (d > W) { x *= W / d; y = cy + (y - cy) * W / d; }
+  const oy = H - cy, D = Math.hypot(W, H);
+  d = Math.hypot(x, y - oy);
+  if (d > D) { x *= D / d; y = oy + (y - oy) * D / d; }
+  return { x, y };
+}
+
+function clipHalf(poly, M, n, sign) {
+  const out = [], f = p => sign * ((p[0] - M.x) * n.x + (p[1] - M.y) * n.y);
+  for (let i = 0; i < poly.length; i++) {
+    const a = poly[i], b = poly[(i + 1) % poly.length], fa = f(a), fb = f(b);
+    if (fa >= 0) out.push(a);
+    if ((fa >= 0) !== (fb >= 0)) { const k = fa / (fa - fb); out.push([a[0] + (b[0] - a[0]) * k, a[1] + (b[1] - a[1]) * k]); }
+  }
+  return out;
+}
+
+/* Dibuja un cuadro del doblez: la línea de pliegue es la mediatriz entre la punta original y la punta actual */
+function frame() {
+  const t = turn, s = t.s;
+  const c = clampCorner(t.corner, t.cy);
+  t.cc = c;
+  const prog = clamp01((c.x - t.x0) / (t.x1 - t.x0));
+  setShift(t.shift0 + (t.shift1 - t.shift0) * prog);
+  const dx = W - c.x, dy = t.cy - c.y, len = Math.hypot(dx, dy);
+  if (len < .5) {
+    t.flat.style.clipPath = 'none';
+    t.flap.style.visibility = 'hidden';
+    shade.style.visibility = 'hidden';
+    return;
+  }
+  t.flap.style.visibility = '';
+  shade.style.visibility = '';
+  const n = { x: dx / len, y: dy / len }, M = { x: (W + c.x) / 2, y: (t.cy + c.y) / 2 };
+  const rect = [[0, 0], [W, 0], [W, H], [0, H]];
+  const flatPoly = clipHalf(rect, M, n, -1), foldPoly = clipHalf(rect, M, n, 1);
+  const refl = (x, y) => { const d = 2 * ((x - M.x) * n.x + (y - M.y) * n.y); return [x - d * n.x, y - d * n.y]; };
+  const toBook = (x, y) => [t.spine + s * x, y];
+
+  t.flat.style.clipPath = cssPoly(flatPoly.map(([x, y]) => [s > 0 ? x : W - x, y]));
+  t.flapInner.style.clipPath = cssPoly(foldPoly.map(([x, y]) => [s > 0 ? W - x : x, y]));
+  const map = (u, v) => { const r = refl(s > 0 ? W - u : u, v); return toBook(r[0], r[1]); };
+  const o = map(0, 0), a = map(1, 0), b = map(0, 1);
+  t.flap.style.transform = `matrix(${(a[0] - o[0]).toFixed(5)},${(a[1] - o[1]).toFixed(5)},${(b[0] - o[0]).toFixed(5)},${(b[1] - o[1]).toFixed(5)},${o[0].toFixed(2)},${o[1].toFixed(2)})`;
+
+  const reach = Math.max(24, Math.min(len * .5, W * .5));
+  const Mb = toBook(M.x, M.y), nb = [s * n.x, n.y];
+  gU.setAttribute('x1', Mb[0]); gU.setAttribute('y1', Mb[1]);
+  gU.setAttribute('x2', Mb[0] + nb[0] * reach * .8); gU.setAttribute('y2', Mb[1] + nb[1] * reach * .8);
+  gF.setAttribute('x1', Mb[0]); gF.setAttribute('y1', Mb[1]);
+  gF.setAttribute('x2', Mb[0] - nb[0] * reach); gF.setAttribute('y2', Mb[1] - nb[1] * reach);
+  pU.setAttribute('points', svgPts(foldPoly.map(([x, y]) => toBook(x, y))));
+  pF.setAttribute('points', svgPts(foldPoly.map(([x, y]) => { const r = refl(x, y); return toBook(r[0], r[1]); })));
+
+  // En celular la hoja sale de pantalla por la izquierda: se desvanece al final
+  const off = single ? clamp01((c.x + W) / (W * .4)) : 1;
+  t.flap.style.opacity = off.toFixed(3);
+  shade.style.opacity = (Math.min(1, len / 70) * off).toFixed(3);
+}
+
+function settle(commit, o = {}) {
+  const t = turn;
+  if (!t) return;
+  t.mode = 'anim';
+  const start = { ...(t.cc || t.corner) };
+  const end = { x: commit ? t.x1 : t.x0, y: t.cy };
+  const dist = Math.hypot(end.x - start.x, end.y - start.y);
+  const dur = reduce ? 0 : (o.dur || 170 + 430 * Math.min(1, dist / (2 * W)));
+  const bump = (o.bump != null ? o.bump : commit ? Math.min(H * .12, dist * .12) : 0) * (t.cy === 0 ? 1 : -1);
+  const fn = EASE[o.ease || 'out'];
+  const t0 = performance.now();
+  const step = now => {
+    if (turn !== t) return;
+    const k = dur ? Math.min(1, (now - t0) / dur) : 1, e = fn(k);
+    t.corner = { x: start.x + (end.x - start.x) * e, y: start.y + (end.y - start.y) * e + Math.sin(Math.PI * e) * bump };
+    frame();
+    if (k < 1) requestAnimationFrame(step); else endTurn(commit);
+  };
+  requestAnimationFrame(step);
+}
+
+function endTurn(commit) {
+  if (commit && turn) cur = turn.target;
+  turn = null;
+  renderStatic();
+  if (queued !== null) { const q = queued; queued = null; if (q !== cur) turnTo(q); }
+}
+
+/* Vuelta automática (botones, teclado, índice, toque) desde la punta inferior */
+function turnTo(target) {
+  target = Math.max(0, Math.min(maxCur, target));
+  if (turn) {
+    if (turn.mode === 'peek' && target === turn.target) { settle(true, { ease: 'inout', bump: H * .24 }); return; }
+    if (turn.mode === 'peek') { turn = null; renderStatic(); }
+    else { if (turn.mode === 'anim') queued = target; return; }
+  }
+  if (target === cur) return;
+  if (!startTurn(target > cur ? 1 : -1, target, H)) return;
+  settle(true, { ease: 'inout', bump: H * .28, dur: 820 });
+}
+function stepBy(d) {
+  const base = turn && turn.mode === 'anim' ? (queued ?? turn.target) : cur;
+  turnTo(base + d);
+}
+function goPage(p) {
+  if (single) return turnTo(p);
+  if (p === 0) return turnTo(0);
+  if (p === P.length - 1) return turnTo(maxCur);
+  turnTo(p % 2 === 0 ? p / 2 : (p + 1) / 2);
+}
+
+/* ¿Qué hoja hay bajo el puntero y qué tan cerca está de la punta? */
+function bookPoint(e) { const r = book.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; }
+function hit(pt) {
+  if (pt.y < 0 || pt.y > H) return null;
+  let dir, px;
+  if (single) {
+    if (pt.x < 0 || pt.x > W) return null;
+    dir = pt.x > W / 2 ? 1 : -1;
+    px = dir > 0 ? W - pt.x : pt.x;
+  } else {
+    const bx = pt.x - W;
+    if (bx > 0 && bx <= W) { dir = 1; px = W - bx; }
+    else if (bx <= 0 && bx >= -W) { dir = -1; px = W + bx; }
+    else return null;
+  }
+  if ((dir > 0 && cur >= maxCur) || (dir < 0 && cur <= 0)) return null;
+  const cy = pt.y < H / 2 ? 0 : H, py = cy === 0 ? pt.y : H - pt.y;
+  return { dir, cy, near: px < CORNER && py < CORNER };
+}
+
+/* Con mouse: al pasar por la punta, la hoja se levanta un poco */
+function hover(e) {
+  const pt = bookPoint(e);
+  if (turn && turn.mode === 'peek') {
+    const px = turn.s * (pt.x - turn.spine);
+    const far = Math.hypot(W - px, turn.cy - pt.y);
+    if (far > CORNER * 1.8 || px > W + 40 || pt.y < -40 || pt.y > H + 40) { settle(false); return; }
+    const x = Math.min(px, W - 8);
+    const y = turn.cy === 0 ? Math.max(pt.y, 8) : Math.min(pt.y, H - 8);
+    turn.corner = { x: Math.max(x, W - CORNER * 1.3), y: turn.cy === 0 ? Math.min(y, CORNER * 1.3) : Math.max(y, H - CORNER * 1.3) };
+    frame();
+    return;
+  }
+  if (turn) return;
+  const h = hit(pt);
+  book.classList.toggle('grab', !!(h && h.near));
+  if (h && h.near && !(single && h.dir < 0) && startTurn(h.dir, cur + h.dir, h.cy)) {
+    turn.mode = 'peek';
+    hover(e);
+  }
+}
+
+book.addEventListener('pointerdown', e => {
+  if (e.button !== 0 || e.target.closest('[data-goto], a, button')) return;
+  if (turn && turn.mode === 'anim') return;
+  drag = { id: e.pointerId, sx: e.clientX, sy: e.clientY, lx: e.clientX, lt: performance.now(), vel: 0, moved: false, pending: null, start: null };
+  if (turn && turn.mode === 'peek') {
+    turn.mode = 'drag';
+    drag.start = { ...turn.cc };
+  } else {
+    const h = hit(bookPoint(e));
+    if (!h) { drag = null; return; }
+    if (h.near && startTurn(h.dir, cur + h.dir, h.cy)) {
+      // Tocar la punta: la hoja se dobla un poquito bajo el dedo
+      turn.mode = 'drag';
+      turn.corner = { x: turn.x0 + (turn.x1 > turn.x0 ? 46 : -30), y: h.cy === 0 ? 30 : H - 30 };
+      frame();
+      drag.start = { ...turn.cc };
+    } else drag.pending = h;
+  }
+  try { book.setPointerCapture(e.pointerId); } catch (_) {}
+  book.classList.add('grabbing');
+});
+
+window.addEventListener('pointermove', e => {
+  if (drag) {
+    if (e.pointerId !== drag.id) return;
+    const dx = e.clientX - drag.sx, dy = e.clientY - drag.sy;
+    if (drag.pending) {
+      if (Math.hypot(dx, dy) < 8) return;
+      const h = drag.pending;
+      drag.pending = null;
+      const dir = single ? (dx < 0 ? 1 : -1) : h.dir;
+      if (!startTurn(dir, cur + dir, h.cy)) { drag = null; book.classList.remove('grabbing'); return; }
+      turn.mode = 'drag';
+      drag.start = { x: turn.x0, y: h.cy };
+    }
+    if (!turn || turn.mode !== 'drag') return;
+    if (Math.hypot(dx, dy) > 6) drag.moved = true;
+    const k = single ? (turn.x0 < 0 ? 2 : 1.6) : 1;
+    turn.corner = { x: drag.start.x + turn.s * dx * k, y: drag.start.y + dy };
+    const now = performance.now(), dt = Math.max(1, now - drag.lt);
+    const toward = Math.sign(turn.x1 - turn.x0) * turn.s;
+    drag.vel = drag.vel * .6 + .4 * ((e.clientX - drag.lx) / dt) * toward;
+    drag.lx = e.clientX; drag.lt = now;
+    frame();
+    return;
+  }
+  if (e.pointerType === 'mouse' && !e.buttons) hover(e);
+});
+
+function release(e) {
+  if (!drag || e.pointerId !== drag.id) return;
+  const d = drag;
+  drag = null;
+  book.classList.remove('grabbing');
+  if (d.pending) { if (e.type === 'pointerup') turnTo(cur + d.pending.dir); return; }
+  if (!turn || turn.mode !== 'drag') return;
+  if (e.type === 'pointercancel') { settle(false); return; }
+  const prog = clamp01((turn.cc.x - turn.x0) / (turn.x1 - turn.x0));
+  let commit = !d.moved || prog > .3 || d.vel > .35;
+  if (d.moved && d.vel < -.35) commit = false;
+  settle(commit, d.moved ? {} : { ease: 'inout', bump: H * .2 });
+}
+window.addEventListener('pointerup', release);
+window.addEventListener('pointercancel', release);
+book.addEventListener('pointerleave', e => {
+  book.classList.remove('grab');
+  if (!drag && turn && turn.mode === 'peek') settle(false);
+});
+
+book.addEventListener('click', e => {
+  const g = e.target.closest('[data-goto]');
+  if (g) goPage(+g.dataset.goto);
+});
+prevBtn.addEventListener('click', () => stepBy(-1));
+nextBtn.addEventListener('click', () => stepBy(1));
+document.getElementById('toIndex').addEventListener('click', () => goPage(2));
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === 'PageDown') { e.preventDefault(); stepBy(1); }
+  else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); stepBy(-1); }
+  else if (e.key === 'Home') { e.preventDefault(); turnTo(0); }
+  else if (e.key === 'End') { e.preventDefault(); turnTo(maxCur); }
+});
+
+function layout() {
+  turn = null; queued = null; drag = null;
+  const vw = stage.clientWidth || window.innerWidth;
+  const chrome = document.getElementById('controls').offsetHeight + document.getElementById('aux').offsetHeight + 100;
+  const avH = window.innerHeight - chrome;
+  const wasSingle = single;
+  single = vw < 700;
+  const ratio = single ? 1.5 : 1.38;
+  const pw = single ? Math.min(vw - 28, avH / ratio, 440) : Math.min((vw - 90) / 2, avH / ratio, 520);
+  W = Math.max(220, Math.floor(pw));
+  H = Math.round(W * ratio);
+  if (wasSingle === true && !single) cur = cur === 0 ? 0 : cur === P.length - 1 ? LEAVES : (cur % 2 === 0 ? cur / 2 : (cur + 1) / 2);
+  if (wasSingle === false && single) cur = cur === 0 ? 0 : cur === LEAVES ? P.length - 1 : 2 * cur - 1;
+  maxCur = single ? P.length - 1 : LEAVES;
+  book.classList.toggle('single', single);
+  const bw = single ? W : W * 2;
+  book.style.width = bw + 'px';
+  book.style.height = H + 'px';
+  book.style.setProperty('--pw', W + 'px');
+  book.style.setProperty('--ph', H + 'px');
+  book.style.fontSize = (W * (single ? .04 : .034)).toFixed(2) + 'px';
+  shade.setAttribute('width', bw);
+  shade.setAttribute('height', H);
+  renderStatic();
+}
+
+document.getElementById('hint').textContent = matchMedia('(pointer: coarse)').matches
+  ? 'Tocá la punta de la hoja y deslizala'
+  : 'Pasá el mouse por la punta de la hoja y arrastrala';
+
+let rt;
+window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(layout, 120); });
+layout();
+</script>
+</body>
+</html>
